@@ -6,13 +6,13 @@
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #030712; }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #7c3aed, #0891b2);
+  background: linear-gradient(to bottom, #f97316, #ec4899);
   border-radius: 3px;
 }
 
 /* ---------- Gradient Text ---------- */
 .gradient-text {
-  background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
+  background: linear-gradient(135deg, #f97316 0%, #ec4899 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -28,13 +28,13 @@
 
 /* ---------- Gradient Button ---------- */
 .btn-glow {
-  background: linear-gradient(135deg, #7c3aed, #0891b2);
+  background: linear-gradient(135deg, #f97316, #ec4899);
   color: #fff;
   transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 .btn-glow:hover {
   opacity: 0.92;
-  box-shadow: 0 0 30px rgba(139, 92, 246, 0.45);
+  box-shadow: 0 0 30px rgba(249, 115, 22, 0.5);
 }
 
 /* ---------- Animated Blobs ---------- */
@@ -48,19 +48,19 @@
 }
 .blob-1 {
   width: 700px; height: 700px;
-  background: radial-gradient(circle, #7c3aed, transparent 70%);
+  background: radial-gradient(circle, #f97316, transparent 70%);
   top: -250px; left: -250px;
   animation-delay: 0s;
 }
 .blob-2 {
   width: 550px; height: 550px;
-  background: radial-gradient(circle, #0891b2, transparent 70%);
+  background: radial-gradient(circle, #ec4899, transparent 70%);
   bottom: -200px; right: -200px;
   animation-delay: -8s;
 }
 .blob-3 {
   width: 450px; height: 450px;
-  background: radial-gradient(circle, #4f46e5, transparent 70%);
+  background: radial-gradient(circle, #db2777, transparent 70%);
   top: 40%; left: 35%;
   animation-delay: -16s;
 }
@@ -97,7 +97,7 @@
   position: absolute;
   bottom: -4px; left: 0;
   width: 0; height: 2px;
-  background: linear-gradient(90deg, #8b5cf6, #06b6d4);
+  background: linear-gradient(90deg, #f97316, #ec4899);
   border-radius: 2px;
   transition: width 0.3s ease;
 }
@@ -130,7 +130,7 @@
 .skill-bar {
   height: 100%;
   width: 0;
-  background: linear-gradient(90deg, #8b5cf6, #06b6d4);
+  background: linear-gradient(90deg, #f97316, #ec4899);
   border-radius: 3px;
   transition: width 1.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -141,8 +141,8 @@
 }
 .service-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(139, 92, 246, 0.35);
-  box-shadow: 0 24px 60px rgba(139, 92, 246, 0.12);
+  border-color: rgba(249, 115, 22, 0.35);
+  box-shadow: 0 24px 60px rgba(249, 115, 22, 0.12);
 }
 
 /* ---------- Icon Wrap ---------- */
@@ -158,12 +158,12 @@
 .tag {
   display: inline-block;
   padding: 3px 11px;
-  background: rgba(139, 92, 246, 0.1);
-  border: 1px solid rgba(139, 92, 246, 0.22);
+  background: rgba(249, 115, 22, 0.1);
+  border: 1px solid rgba(249, 115, 22, 0.22);
   border-radius: 20px;
   font-size: 11px;
   font-weight: 600;
-  color: #a78bfa;
+  color: #fb923c;
 }
 
 /* ---------- Portfolio Filter Buttons ---------- */
@@ -180,10 +180,10 @@
 }
 .filter-btn:hover,
 .filter-btn.active {
-  background: linear-gradient(135deg, #7c3aed, #0891b2);
+  background: linear-gradient(135deg, #f97316, #ec4899);
   border-color: transparent;
   color: #fff;
-  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+  box-shadow: 0 4px 20px rgba(249, 115, 22, 0.35);
 }
 
 /* ---------- Portfolio Item ---------- */
@@ -205,9 +205,9 @@
   transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
 }
 .input-field:focus {
-  border-color: rgba(139, 92, 246, 0.55);
-  background: rgba(139, 92, 246, 0.06);
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.12);
+  border-color: rgba(249, 115, 22, 0.55);
+  background: rgba(249, 115, 22, 0.06);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.12);
 }
 
 /* ---------- Social Buttons ---------- */
