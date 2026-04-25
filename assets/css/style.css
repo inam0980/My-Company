@@ -251,3 +251,103 @@
 @media (max-width: 768px) {
   .blob-1, .blob-2, .blob-3 { opacity: 0.07; }
 }
+
+/* ========== MOBILE RESPONSIVE ========== */
+
+/* Portfolio cards — full width on small screens */
+@media (max-width: 640px) {
+  #portfolio-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Portfolio card image height */
+  .portfolio-item .h-48 {
+    height: 200px;
+  }
+
+  /* Always show hover overlay buttons on touch devices */
+  .portfolio-item .group-hover\:opacity-100 {
+    opacity: 1 !important;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+    align-items: flex-end;
+    padding-bottom: 12px;
+  }
+
+  /* Tag wrapping */
+  .portfolio-item .flex-wrap {
+    gap: 6px;
+  }
+
+  /* Prevent text overflow in bullets */
+  .portfolio-item ul li {
+    font-size: 11px;
+  }
+
+  /* Hero headline sizing */
+  h1 {
+    font-size: 2.5rem !important;
+    line-height: 1.1 !important;
+  }
+
+  /* Section padding */
+  section {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  /* Stats grid — 2 columns on mobile */
+  .grid.grid-cols-2.md\:grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem;
+  }
+
+  /* Contact form full width inputs */
+  .grid.sm\:grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Filter buttons wrap nicely */
+  .filter-btn {
+    padding: 6px 14px;
+    font-size: 12px;
+  }
+
+  /* About grid stacks */
+  .grid.md\:grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* CTA buttons full width */
+  .flex-wrap.items-center.justify-center.gap-4 a {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* Footer links */
+  footer .grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem;
+  }
+}
+
+/* Tablet tweaks */
+@media (min-width: 641px) and (max-width: 1023px) {
+  #portfolio-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  h1 {
+    font-size: 3.5rem !important;
+  }
+}
+
+/* Touch devices — show overlay links permanently */
+@media (hover: none) {
+  .portfolio-item [class*="opacity-0"] {
+    opacity: 1 !important;
+    background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 55%);
+    align-items: flex-end;
+    padding-bottom: 10px;
+  }
+}
