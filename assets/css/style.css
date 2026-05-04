@@ -190,6 +190,11 @@
 .portfolio-item {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+/* Read more button hidden on desktop, shown via mobile CSS */
+.portfolio-read-more {
+  display: none;
+}
 .portfolio-item:hover {
   transform: translateY(-8px);
   box-shadow: 0 28px 60px rgba(0,0,0,0.5);
@@ -254,80 +259,239 @@
 
 /* ========== MOBILE RESPONSIVE ========== */
 
-/* Portfolio cards — full width on small screens */
 @media (max-width: 640px) {
-  #portfolio-grid {
-    grid-template-columns: 1fr !important;
-  }
 
-  /* Portfolio card image height */
-  .portfolio-item .h-48 {
-    height: 200px;
-  }
-
-  /* Always show hover overlay buttons on touch devices */
-  .portfolio-item .group-hover\:opacity-100 {
-    opacity: 1 !important;
-    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
-    align-items: flex-end;
-    padding-bottom: 12px;
-  }
-
-  /* Tag wrapping */
-  .portfolio-item .flex-wrap {
-    gap: 6px;
-  }
-
-  /* Prevent text overflow in bullets */
-  .portfolio-item ul li {
-    font-size: 11px;
-  }
-
-  /* Hero headline sizing */
+  /* ---- Hero ---- */
   h1 {
-    font-size: 2.5rem !important;
-    line-height: 1.1 !important;
+    font-size: 2.2rem !important;
+    line-height: 1.15 !important;
   }
-
-  /* Section padding */
   section {
-    padding-top: 4rem !important;
-    padding-bottom: 4rem !important;
+    padding-top: 3.5rem !important;
+    padding-bottom: 3.5rem !important;
   }
-
-  /* Stats grid — 2 columns on mobile */
-  .grid.grid-cols-2.md\:grid-cols-4 {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 1.5rem;
-  }
-
-  /* Contact form full width inputs */
-  .grid.sm\:grid-cols-2 {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* Filter buttons wrap nicely */
-  .filter-btn {
-    padding: 6px 14px;
-    font-size: 12px;
-  }
-
-  /* About grid stacks */
-  .grid.md\:grid-cols-2 {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* CTA buttons full width */
   .flex-wrap.items-center.justify-center.gap-4 a {
     width: 100%;
     text-align: center;
     justify-content: center;
   }
 
-  /* Footer links */
+  /* ---- Services — 2 col grid ---- */
+  #services .grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+  .service-card {
+    padding: 1rem !important;
+    border-radius: 1.25rem !important;
+  }
+  .service-card .icon-wrap,
+  .icon-wrap {
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 10px !important;
+    margin-bottom: 0.6rem !important;
+  }
+  .service-card .icon-wrap i {
+    font-size: 1rem !important;
+  }
+  .service-card h3 {
+    font-size: 0.8rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 0.35rem !important;
+    line-height: 1.3 !important;
+  }
+  .service-card p {
+    font-size: 0.68rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0.6rem !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .service-card .tag {
+    font-size: 0.6rem !important;
+    padding: 2px 6px !important;
+  }
+  .service-card .flex-wrap {
+    gap: 4px !important;
+  }
+
+  /* ---- Portfolio — horizontal card layout on mobile ---- */
+  #portfolio-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.65rem !important;
+  }
+  /* Make each card a horizontal row: image left, content right */
+  .portfolio-item {
+    display: flex !important;
+    flex-direction: row !important;
+    border-radius: 1rem !important;
+    overflow: hidden !important;
+    min-height: 110px !important;
+  }
+  /* Left: fixed-width thumbnail */
+  .portfolio-item .h-48 {
+    width: 110px !important;
+    min-width: 110px !important;
+    height: auto !important;
+    flex-shrink: 0 !important;
+  }
+  /* Right: content area */
+  .portfolio-item .p-5,
+  .portfolio-item .p-6 {
+    padding: 0.6rem 0.75rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    min-width: 0 !important;
+  }
+  /* Category label */
+  .portfolio-item span.text-xs {
+    font-size: 0.58rem !important;
+    letter-spacing: 0.04em !important;
+    line-height: 1 !important;
+  }
+  /* Project title */
+  .portfolio-item h3 {
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    margin-top: 0.2rem !important;
+    margin-bottom: 0.3rem !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  /* Description — show clamped, hidden by default on horizontal layout */
+  .portfolio-item p {
+    display: none !important;
+  }
+  /* Bullet list collapsed by default */
+  .portfolio-item ul {
+    display: none !important;
+    margin-bottom: 0.4rem !important;
+  }
+  .portfolio-item ul li {
+    font-size: 0.65rem !important;
+    line-height: 1.4 !important;
+    gap: 0.3rem !important;
+  }
+  .portfolio-item ul li i {
+    font-size: 0.55rem !important;
+    margin-top: 2px !important;
+  }
+  /* Expanded state — card goes vertical, shows full details */
+  .portfolio-item.expanded {
+    flex-direction: column !important;
+  }
+  .portfolio-item.expanded .h-48 {
+    width: 100% !important;
+    min-width: unset !important;
+    height: 160px !important;
+  }
+  .portfolio-item.expanded .p-5,
+  .portfolio-item.expanded .p-6 {
+    justify-content: flex-start !important;
+  }
+  .portfolio-item.expanded ul {
+    display: block !important;
+  }
+  .portfolio-item.expanded h3 {
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+  }
+  /* Read more / less button — mobile only */
+  .portfolio-read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #f97316;
+    cursor: pointer;
+    margin-top: 0.3rem;
+    background: none;
+    border: none;
+    padding: 0;
+    transition: color 0.2s;
+  }
+  .portfolio-read-more:hover { color: #fb923c; }
+  .portfolio-read-more i {
+    font-size: 0.55rem;
+    transition: transform 0.25s;
+  }
+  .portfolio-item.expanded .portfolio-read-more i {
+    transform: rotate(180deg);
+  }
+  /* Tags row */
+  .portfolio-item .flex-wrap {
+    gap: 3px !important;
+    margin-bottom: 0.4rem !important;
+    overflow: hidden !important;
+    max-height: 22px !important;
+  }
+  .portfolio-item.expanded .flex-wrap {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  .portfolio-item .tag {
+    font-size: 0.58rem !important;
+    padding: 2px 6px !important;
+    white-space: nowrap !important;
+  }
+  /* Bottom links */
+  .portfolio-item .flex.gap-3 {
+    gap: 0.6rem !important;
+    margin-top: auto !important;
+  }
+  .portfolio-item .flex.gap-3 a {
+    font-size: 0.65rem !important;
+  }
+  /* Overlay — show on touch, anchored to image */
+  .portfolio-item .group-hover\:opacity-100 {
+    opacity: 1 !important;
+    background: linear-gradient(to right, rgba(0,0,0,0.65) 0%, transparent 100%);
+    align-items: flex-end !important;
+    padding-bottom: 6px !important;
+    padding-left: 6px !important;
+  }
+  .portfolio-item .group-hover\:opacity-100 a {
+    font-size: 0.58rem !important;
+    padding: 3px 7px !important;
+  }
+
+  /* ---- Filter buttons ---- */
+  .filter-btn {
+    padding: 5px 12px;
+    font-size: 0.7rem;
+  }
+
+  /* ---- Stats / numbers grid ---- */
+  .grid.grid-cols-2.md\:grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+  .grid.grid-cols-2.md\:grid-cols-4 .glass-card {
+    padding: 0.75rem !important;
+  }
+
+  /* ---- About / stacked grids ---- */
+  .grid.md\:grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ---- Contact form ---- */
+  .grid.sm\:grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ---- Footer ---- */
   footer .grid {
     grid-template-columns: 1fr !important;
-    gap: 2rem;
+    gap: 1.5rem !important;
   }
 }
 
@@ -343,7 +507,16 @@
 }
 
 /* Touch devices — show overlay links permanently */
-@media (hover: none) {
+@media (hover: none) and (max-width: 640px) {
+  .portfolio-item [class*="opacity-0"] {
+    opacity: 1 !important;
+    background: linear-gradient(to right, rgba(0,0,0,0.6) 0%, transparent 100%);
+    align-items: flex-end;
+    padding-bottom: 6px;
+    padding-left: 6px;
+  }
+}
+@media (hover: none) and (min-width: 641px) {
   .portfolio-item [class*="opacity-0"] {
     opacity: 1 !important;
     background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 55%);

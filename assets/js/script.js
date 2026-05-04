@@ -88,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initBackToTop();
   initSmoothScroll();
+  initPortfolioReadMore();
 });
 
 
@@ -247,6 +248,20 @@ function initSmoothScroll() {
         e.preventDefault();
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
+    });
+  });
+}
+
+
+/* ========== PORTFOLIO READ MORE (mobile only) ========== */
+function initPortfolioReadMore() {
+  document.querySelectorAll('.portfolio-read-more').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.portfolio-item');
+      const expanded = card.classList.toggle('expanded');
+      btn.innerHTML = expanded
+        ? 'Show less <i class="fas fa-chevron-down"></i>'
+        : 'Read more <i class="fas fa-chevron-down"></i>';
     });
   });
 }
